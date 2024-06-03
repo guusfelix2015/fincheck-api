@@ -7,6 +7,7 @@ import { AuthGuard } from './modules/auth/auth.guard';
 import { JwtService } from '@nestjs/jwt';
 import { CategoriesModule } from './modules/categories/categories.module';
 import { BankAccountsModule } from './modules/bank-accounts/bank-accounts.module';
+import { TransactionsModule } from './modules/transactions/transactions.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { BankAccountsModule } from './modules/bank-accounts/bank-accounts.module
     AuthModule,
     CategoriesModule,
     BankAccountsModule,
+    TransactionsModule,
   ],
 
   providers: [

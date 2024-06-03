@@ -2,7 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { BankAccountsRepository } from 'src/shared/database/repositories/bank-accounts.repositories';
 
 @Injectable()
-export class ValidateBanckAccountOwnershipService {
+export class ValidateBankAccountOwnershipService {
   constructor(private readonly bankAcckountsRepo: BankAccountsRepository) {}
 
   async validate(userId: string, bankAccountId: string) {
