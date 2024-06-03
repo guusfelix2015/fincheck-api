@@ -7,6 +7,8 @@ import {
   Delete,
   Put,
   ParseUUIDPipe,
+  HttpCode,
+  HttpStatus,
 } from '@nestjs/common';
 import { CreateTransactionDto } from './dto/create-transaction.dto';
 import { ActiveUserId } from 'src/shared/decorators/activeUserId';
@@ -43,8 +45,12 @@ export class TransactionsController {
     );
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.transactionsService.remove(+id);
+  @Delete(':transactionId')
+  @HttpCode(HttpStatus.NO_CONTENT)
+  remove(
+    @ActiveUserId() userId: string,
+    @Param('transactionId', ParseUUIDPipe) transactionId: string,
+  ) {
+    return this.transactionsService.remove(userId, transactionId);
   }
 }
